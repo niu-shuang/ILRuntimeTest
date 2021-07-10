@@ -3,3 +3,4 @@ D:\ILRuntimeTest\Assets\StreamingAssets\HotFixProj.pdb
 D:\ILRuntimeTest\HotFixProj\obj\Release\HotFixProj.csproj.CoreCompileInputs.cache
 D:\ILRuntimeTest\HotFixProj\obj\Release\HotFixProj.dll
 D:\ILRuntimeTest\HotFixProj\obj\Release\HotFixProj.pdb
+D:\ILRuntimeTest\HotFixProj\obj\Release\HotFixProj.csproj.AssemblyReference.cache

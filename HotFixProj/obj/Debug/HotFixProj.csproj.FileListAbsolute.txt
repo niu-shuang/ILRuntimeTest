@@ -1,7 +1,6 @@
 D:\ILRuntimeTest\Assets\StreamingAssets\HotFixProj.dll
 D:\ILRuntimeTest\Assets\StreamingAssets\HotFixProj.pdb
-D:\ILRuntimeTest\HotFixProj\obj\Debug\HotFixProj.csprojAssemblyReference.cache
 D:\ILRuntimeTest\HotFixProj\obj\Debug\HotFixProj.csproj.CoreCompileInputs.cache
-D:\ILRuntimeTest\HotFixProj\obj\Debug\HotFixProj.csproj.CopyComplete
 D:\ILRuntimeTest\HotFixProj\obj\Debug\HotFixProj.dll
 D:\ILRuntimeTest\HotFixProj\obj\Debug\HotFixProj.pdb
+D:\ILRuntimeTest\HotFixProj\obj\Debug\HotFixProj.csproj.AssemblyReference.cache

@@ -10,16 +10,32 @@ namespace HotFixProj
 {
     public class Main
     {
+        public static void Test()
+        {
+            int i = 10;
+            int b = i + 1;
+            Debug.Log(b);
+        }
+
+        public static async void TestVoid()
+        {
+            await UniTask.Delay(100);
+            Debug.LogError("test void ");
+        }
+
         public static async void TestUniTask()
         {
             int value = await IntTask();
             Debug.Log($"Get value task value : { value }");
+            TestVoid();
         }
 
         private static async UniTask<int> IntTask()
         {
-            await UniTask.Delay(1000);
+            await UniTask.Delay(100);
+            Debug.LogError("int task awaited");
             return 1;
         }
+
     }
 }

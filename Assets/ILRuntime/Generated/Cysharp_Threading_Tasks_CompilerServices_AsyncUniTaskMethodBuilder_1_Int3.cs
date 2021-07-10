@@ -76,9 +76,6 @@ namespace ILRuntime.Runtime.Generated
             args = new Type[]{typeof(System.Int32)};
             method = type.GetMethod("SetResult", flag, null, args, null);
             app.RegisterCLRMethodRedirection(method, SetResult_5);
-            args = new Type[]{typeof(System.Runtime.CompilerServices.IAsyncStateMachine)};
-            method = type.GetMethod("SetStateMachine", flag, null, args, null);
-            app.RegisterCLRMethodRedirection(method, SetStateMachine_6);
 
             app.RegisterCLRCreateDefaultInstance(type, () => new Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder<System.Int32>());
 
@@ -153,9 +150,9 @@ namespace ILRuntime.Runtime.Generated
 
             ptr_of_this_method = ILIntepreter.Minus(__esp, 2);
             ptr_of_this_method = ILIntepreter.GetObjectAndResolveReference(ptr_of_this_method);
-            Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder<System.Int32> instance_of_this_method = (Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder<System.Int32>)typeof(Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder<System.Int32>).CheckCLRTypes(StackObject.ToObject(ptr_of_this_method, __domain, __mStack));
+            object instance_of_this_method = (Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder<System.Int32>)typeof(Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder<System.Int32>).CheckCLRTypes(StackObject.ToObject(ptr_of_this_method, __domain, __mStack));
 
-            instance_of_this_method.Start<global::IAsyncStateMachineClassInheritanceAdaptor.IAsyncStateMachineAdaptor>(ref @stateMachine);
+            ((Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder<System.Int32>)instance_of_this_method).Start<global::IAsyncStateMachineClassInheritanceAdaptor.IAsyncStateMachineAdaptor>(ref @stateMachine);
 
             ptr_of_this_method = ILIntepreter.Minus(__esp, 1);
             switch(ptr_of_this_method->ObjectType)
@@ -213,8 +210,6 @@ namespace ILRuntime.Runtime.Generated
 
             __intp.Free(ptr_of_this_method);
             ptr_of_this_method = ILIntepreter.Minus(__esp, 2);
-            WriteBackInstance(__domain, ptr_of_this_method, __mStack, ref instance_of_this_method);
-
             __intp.Free(ptr_of_this_method);
             return __ret;
         }
@@ -410,29 +405,6 @@ namespace ILRuntime.Runtime.Generated
             Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder<System.Int32> instance_of_this_method = (Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder<System.Int32>)typeof(Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder<System.Int32>).CheckCLRTypes(StackObject.ToObject(ptr_of_this_method, __domain, __mStack));
 
             instance_of_this_method.SetResult(@result);
-
-            ptr_of_this_method = ILIntepreter.Minus(__esp, 2);
-            WriteBackInstance(__domain, ptr_of_this_method, __mStack, ref instance_of_this_method);
-
-            __intp.Free(ptr_of_this_method);
-            return __ret;
-        }
-
-        static StackObject* SetStateMachine_6(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
-        {
-            ILRuntime.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
-            StackObject* __ret = ILIntepreter.Minus(__esp, 2);
-
-            ptr_of_this_method = ILIntepreter.Minus(__esp, 1);
-            System.Runtime.CompilerServices.IAsyncStateMachine @stateMachine = (System.Runtime.CompilerServices.IAsyncStateMachine)typeof(System.Runtime.CompilerServices.IAsyncStateMachine).CheckCLRTypes(StackObject.ToObject(ptr_of_this_method, __domain, __mStack));
-            __intp.Free(ptr_of_this_method);
-
-            ptr_of_this_method = ILIntepreter.Minus(__esp, 2);
-            ptr_of_this_method = ILIntepreter.GetObjectAndResolveReference(ptr_of_this_method);
-            Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder<System.Int32> instance_of_this_method = (Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder<System.Int32>)typeof(Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder<System.Int32>).CheckCLRTypes(StackObject.ToObject(ptr_of_this_method, __domain, __mStack));
-
-            instance_of_this_method.SetStateMachine(@stateMachine);
 
             ptr_of_this_method = ILIntepreter.Minus(__esp, 2);
             WriteBackInstance(__domain, ptr_of_this_method, __mStack, ref instance_of_this_method);

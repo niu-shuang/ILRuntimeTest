@@ -19,10 +19,13 @@ namespace HotFixProj
 
         public static async void TestVoid()
         {
-            await UniTask.Delay(100);
-            Debug.LogError("test void ");
+            int i = 0;
+            await Task.Delay(500);
+            i++;
+            Debug.Log(i);
         }
 
+        /*
         public static async void TestUniTask()
         {
             int value = await IntTask();
@@ -35,7 +38,7 @@ namespace HotFixProj
             await UniTask.Delay(100);
             Debug.LogError("int task awaited");
             return 1;
-        }
+        }*/
 
     }
 }

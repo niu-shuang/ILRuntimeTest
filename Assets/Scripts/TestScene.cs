@@ -1,17 +1,16 @@
-using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TestScene : MonoBehaviour
 {
-    private void Start()
+    private async void Start()
     {
-        ILRuntimeManager.Instance.Init("HotFixProj").Forget();
+        var suc = await ILRuntimeManager.Instance.Init("HotFixProj");
     }
-    public async void StartILRuntime()
+    public void StartILRuntime()
     {
         //await ILRuntimeManager.Instance.Init("HotFixProj");
-        ILRuntimeManager.Instance.InvokeStaticFunc("HotFixProj.Main", "TestUniTask");
+        ILRuntimeManager.Instance.InvokeStaticFunc("HotFixProj.Main", "TestVoid");
     }
 }

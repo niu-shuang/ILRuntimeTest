@@ -24,12 +24,8 @@ namespace ILRuntime.Runtime.Generated
         {
             UnityEngine_Debug_Binding.Register(app);
             System_Runtime_CompilerServices_AsyncVoidMethodBuilder_Binding.Register(app);
-            Cysharp_Threading_Tasks_CompilerServices_AsyncUniTaskMethodBuilder_1_Int32_Binding.Register(app);
-            Cysharp_Threading_Tasks_UniTask_1_Int32_Binding.Register(app);
-            Cysharp_Threading_Tasks_UniTask_1_Int32_Binding_Awaiter_Binding.Register(app);
-            System_String_Binding.Register(app);
-            Cysharp_Threading_Tasks_UniTask_Binding.Register(app);
-            Cysharp_Threading_Tasks_UniTask_Binding_Awaiter_Binding.Register(app);
+            System_Threading_Tasks_Task_Binding.Register(app);
+            System_Runtime_CompilerServices_TaskAwaiter_Binding.Register(app);
         }
 
         /// <summary>

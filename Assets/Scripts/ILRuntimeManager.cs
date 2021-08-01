@@ -4,12 +4,13 @@ using UnityEngine.Networking;
 using System.IO;
 using LitJson;
 using System;
-using Cysharp.Threading.Tasks;
 using ILRuntime.CLR.TypeSystem;
 using ILRuntime.Runtime.Intepreter;
 using ILRuntime.CLR.Method;
 using System.Linq;
 using System.Collections;
+using System.Threading.Tasks;
+using ILRuntime.Runtime;
 
 public class ILRuntimeManager : SingletonMonoBehaviour<ILRuntimeManager>
 {
@@ -17,9 +18,9 @@ public class ILRuntimeManager : SingletonMonoBehaviour<ILRuntimeManager>
     private MemoryStream dllMS;
     private MemoryStream pdbMS;
 
-    public async UniTask<bool> Init(string patchName, DividableProgress progress = null)
+    public async Task<bool> Init(string patchName, DividableProgress progress = null)
     {
-        appdomain = new ILRuntime.Runtime.Enviorment.AppDomain(  );
+        appdomain = new ILRuntime.Runtime.Enviorment.AppDomain(ILRuntimeJITFlags.JITOnDemand);
         if (dllMS != null)
         {
             dllMS.Dispose();
@@ -37,7 +38,7 @@ public class ILRuntimeManager : SingletonMonoBehaviour<ILRuntimeManager>
         byte[] dll;
 
         UnityWebRequest dllReq = UnityWebRequest.Get(dllFilePath);
-        await dllReq.SendAsObservable(progress?.Divide(.4f)).ToUniTask();
+        await dllReq.SendWebRequest();
         if (dllReq.result == UnityWebRequest.Result.ConnectionError)
         {
             Debug.LogError(dllReq.error);
@@ -54,7 +55,7 @@ public class ILRuntimeManager : SingletonMonoBehaviour<ILRuntimeManager>
         string pdbFilePath = "file:///" + Application.streamingAssetsPath + $"/{patchName}.pdb";
 #endif
         var req = UnityWebRequest.Get(pdbFilePath);
-        await req.SendAsObservable(progress?.Divide(.4f)).ToUniTask();
+        await req.SendWebRequest();
         if (req.result == UnityWebRequest.Result.ConnectionError)
         {
             Debug.LogError(req.error);
@@ -150,6 +151,8 @@ public class ILRuntimeManager : SingletonMonoBehaviour<ILRuntimeManager>
     protected override void SingletonOnDestroy()
     {
         //InvokeStaticFunc("HotFixProj.Main", "Dispose");
+        ILRuntime.Runtime.Generated.CLRBindings.Shutdown(appdomain);
+        appdomain.DebugService.StopDebugService();
         dllMS?.Dispose();
         pdbMS?.Dispose();
     }
